@@ -1,0 +1,54 @@
+train_dataset:
+  dataset:
+    name: image-folder
+    args:
+      root_path: 'map/map_train_HR'
+      repeat: 10
+      cache: in_memory
+  wrapper:
+    name: sr-implicit-downsampled
+    args:
+      inp_size: 48
+      scale_max: 3
+      augment: true
+  batch_size: 16
+val_dataset:
+  dataset:
+    name: image-folder
+    args:
+      root_path: 'map/val'
+      first_k: 60
+      repeat: 1
+      cache: in_memory
+  wrapper:
+    name: sr-implicit-downsampled
+    args:
+      inp_size: 48
+      scale_max: 3
+  batch_size: 32
+data_norm:
+  inp:
+    sub:
+    - 0.5
+    div:
+    - 0.5
+  gt:
+    sub:
+    - 0.5
+    div:
+    - 0.5
+model:
+  name: dbpn
+  args:
+    scale: 3
+#  sd: 'save/_dbpn_x2_train1/epoch-best.pth'
+optimizer:
+  name: adam
+  args:
+    lr: 0.0001
+epoch_max: 1000
+multi_step_lr:
+#  milestones: [50, 100, 150, 200]
+#  gamma: 0.5
+epoch_val: 1
+epoch_save: 100

@@ -1,0 +1,4 @@
+scale: 3
+model:
+#  sd: '../save/_rcan_x3_train1/epoch-last.pth'
+  sd: '../save/_rcan_x3_train1/epoch-best.pth'

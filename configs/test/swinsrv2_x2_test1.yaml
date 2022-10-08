@@ -1,0 +1,4 @@
+scale: 2
+model:
+#  sd: '../save/_swinsrv2_x2_train1/epoch-last.pth'
+  sd: '../save/_swinsrv2_x2_train1/epoch-best.pth'
