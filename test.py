@@ -92,7 +92,7 @@ def eval_psnr(loader, model, data_norm=None, eval_type=None, eval_bsize=None,
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', default="edsr_baseline_x2_test2.yaml")
+    parser.add_argument('--config', default="edsr_x2_test1.yaml")
     parser.add_argument('--model', default="save/_test_edsr/epoch-best.pth")
     parser.add_argument('--gpu', default='0')
     args = parser.parse_args()
