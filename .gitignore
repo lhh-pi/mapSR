@@ -1,10 +1,8 @@
 .idea
 __pycache__
+/configs/
+/map/
 /save/
 /eval/Results/
 /eval/test/
-*.yaml
-*.png
-*.jp*g*
-*.pth
-*.txt
+
