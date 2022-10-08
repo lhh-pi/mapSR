@@ -1,11 +1,10 @@
 .idea
 __pycache__
-*_train*
+/save/
 /eval/Result/
 /eval/test/
 *.yaml
 *.png
 *.jp?g?
-*.jpg
 *.pth
 *.txt
