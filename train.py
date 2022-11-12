@@ -257,7 +257,7 @@ if __name__ == '__main__':
     # args.config = 'configs/train/swinsrv3_x2_train1.yaml'
     # args.config = 'configs/train/swinsrv3_x2_train2.yaml'
     # args.config = 'configs/train/swinsrv3_x2_train3.yaml'
-    args.config = 'configs/train/swinsrv3_x2_train4.yaml'
+    # args.config = 'configs/train/swinsrv3_x2_train4.yaml'
     # args.config = 'configs/train/swinsrv4_x2_train1.yaml'
     # args.config = 'configs/train/swinsrv4_x2_train2.yaml'
     # args.config = 'configs/train/swinsrv4_x2_train3.yaml'
@@ -272,6 +272,8 @@ if __name__ == '__main__':
     # args.config = 'configs/train/rcan_x3_train1.yaml'
     # args.config = 'configs/train/edsr_x3_train1.yaml'
     # args.config = 'configs/train/drrn_x3_train1.yaml'
+
+    args.config = 'configs/train/swinir_L_x2_train1.yaml'
 
     with open(args.config, 'r') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)

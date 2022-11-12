@@ -859,6 +859,9 @@ def make_swinir(scale=2):
     upscale = scale
     window_size = 8
 
+    # return SwinIR(upscale=upscale, img_size=48,
+    #               window_size=window_size, img_range=1., depths=[6, 6, 6, 6],
+    #               embed_dim=60, num_heads=[6, 6, 6, 6], mlp_ratio=2, upsampler='pixelshuffledirect')
     return SwinIR(upscale=upscale, img_size=48,
-                  window_size=window_size, img_range=1., depths=[6, 6, 6, 6],
-                  embed_dim=60, num_heads=[6, 6, 6, 6], mlp_ratio=2, upsampler='pixelshuffledirect')
+                  window_size=window_size, img_range=1., depths=[6, 6, 6, 6, 6, 6],
+                  embed_dim=180, num_heads=[6, 6, 6, 6, 6, 6], mlp_ratio=2, upsampler='pixelshuffle')
