@@ -5,4 +5,5 @@ __pycache__
 /save/
 /eval/Results/
 /eval/test/
-
+/eval/[s|S]et*
+/eval/*map*
