@@ -1,0 +1,5 @@
+scale: 2
+model:
+  sd: '../configs/models/swinir_L/epoch-200.pth'
+#  sd: '../configs/models/swinir_L/epoch-best.pth'
+#  sd: '../configs/models/swinir_L/epoch-last.pth'
