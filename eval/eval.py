@@ -53,13 +53,8 @@ args.config = "../configs/test/dbpn_x2_test1.yaml"
 # args.config = "../configs/test/rcan_x3_test1.yaml"
 # args.config = "../configs/test/edsr_x3_test1.yaml"
 
-<<<<<<< HEAD
-# 开题绘图
-args.input_dir = "kaiti"
-=======
 # args.config = "../configs/test/swinir_L_x2_test1.yaml"
 
->>>>>>> 0db0559d07919a8eba2cfaa49a2a136191e311a9
 with open(args.config, 'r') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
