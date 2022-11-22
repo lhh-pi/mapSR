@@ -853,8 +853,8 @@ class SwinIR(nn.Module):
         return flops
 
 
-@register('swinir')
-def make_swinir(scale=2):
+@register('swinir_l')
+def make_swinir_l(scale=2):
     # args = Namespace()
     upscale = scale
     window_size = 8

@@ -273,7 +273,9 @@ if __name__ == '__main__':
     # args.config = 'configs/train/edsr_x3_train1.yaml'
     # args.config = 'configs/train/drrn_x3_train1.yaml'
 
-    args.config = 'configs/train/swinir_L_x2_train1.yaml'
+    # args.config = 'configs/train/swinir_L_x2_train1.yaml'
+    # args.config = 'configs/train/swinir_L_x3_train1.yaml'
+    args.config = 'configs/train/swinir_L_x3_train2.yaml'
 
     with open(args.config, 'r') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)

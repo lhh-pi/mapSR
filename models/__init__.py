@@ -7,3 +7,4 @@ from . import mlp
 from . import misc
 from . import swinsrv0, swinsrv1, swinsrv2, swinsrv3, swinsrv4
 from . import swinirv1
+from . import swinir_l
