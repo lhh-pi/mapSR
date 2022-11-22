@@ -7,3 +7,5 @@ __pycache__
 /eval/test/
 /eval/[s|S]et*
 /eval/*map*
+/eval/kaiti/
+/Transfer/mapsr/

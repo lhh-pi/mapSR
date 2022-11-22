@@ -19,7 +19,8 @@ parser.add_argument('--config', default="")
 parser.add_argument('--upscale_factor', type=int, help="super resolution upscale factor")
 parser.add_argument('--testBatchSize', type=int, default=1, help='testing batch size')
 parser.add_argument('--gpu_mode', type=bool, default=True)
-parser.add_argument('--threads', type=int, default=1, help='number of threads for data loader to use')
+# parser.add_argument('--threads', type=int, default=1, help='number of threads for data loader to use')
+parser.add_argument('--threads', type=int, default=0, help='number of threads for data loader to use')  # for windows
 parser.add_argument("--cuda", type=bool, default=True, help="Use cuda?")
 parser.add_argument('--gpus', default=1, type=int, help='number of gpu')
 parser.add_argument('--input_dir', type=str, default='test')
@@ -52,6 +53,8 @@ args.config = "../configs/test/rcan_x2_test1.yaml"
 # args.config = "../configs/test/rcan_x3_test1.yaml"
 # args.config = "../configs/test/edsr_x3_test1.yaml"
 
+# 开题绘图
+args.input_dir = "kaiti"
 with open(args.config, 'r') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
@@ -145,4 +148,4 @@ def my_test():
     print("===> Avg. SSIM: {:.4f} dB".format(avg_ssim / len(image_lr_filenames)))
 
 
-my_test()
+# my_test()
