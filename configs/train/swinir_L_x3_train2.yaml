@@ -9,7 +9,7 @@ train_dataset:
     name: sr-implicit-downsampled
     args:
       inp_size: 48
-      scale_max: 2
+      scale_max: 3
       augment: true
   batch_size: 8
 
@@ -25,7 +25,7 @@ val_dataset:
     name: sr-implicit-downsampled
     args:
       inp_size: 48
-      scale_max: 2
+      scale_max: 3
   batch_size: 32
 
 data_norm:
@@ -33,11 +33,10 @@ data_norm:
 #  gt: {sub: [0.5], div: [0.5]}
 
 model:
-#  name: edsr-baseline
-  name: swinir
+  name: swinir_l
   args:
-    scale: 2
-#  sd: 'configs/models/swinir_x2/epoch-last.pth'
+    scale: 3
+  sd: save/_swinir_L_x3_train1/epoch-last.pth
 
 optimizer:
   name: adam

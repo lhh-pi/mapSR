@@ -33,9 +33,9 @@ torch.backends.cudnn.benchmark = True
 
 # 加载配置文件
 # args.config = "../configs/test/swinir_x2_test1.yaml"
-# args.config = "../configs/test/dbpn_x2_test1.yaml"
+args.config = "../configs/test/dbpn_x2_test1.yaml"
 # args.config = "../configs/test/esrt_x2_test1.yaml"
-args.config = "../configs/test/rcan_x2_test1.yaml"
+# args.config = "../configs/test/rcan_x2_test1.yaml"
 # args.config = "../configs/test/edsr_x2_test1.yaml"
 # args.config = "../configs/test/swinsr_x2_test1.yaml"
 # args.config = "../configs/test/swinsrv2_x2_test1.yaml"
@@ -53,8 +53,13 @@ args.config = "../configs/test/rcan_x2_test1.yaml"
 # args.config = "../configs/test/rcan_x3_test1.yaml"
 # args.config = "../configs/test/edsr_x3_test1.yaml"
 
+<<<<<<< HEAD
 # 开题绘图
 args.input_dir = "kaiti"
+=======
+# args.config = "../configs/test/swinir_L_x2_test1.yaml"
+
+>>>>>>> 0db0559d07919a8eba2cfaa49a2a136191e311a9
 with open(args.config, 'r') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
 
@@ -133,8 +138,9 @@ def my_test():
 
     for index in range(len(image_lr_filenames)):
         img_prediction = cv2.imread(image_lr_filenames[index])
-        img_GT = cv2.imread(image_gt_filenames[index])
-
+        # img_GT = cv2.imread(image_gt_filenames[index])
+        image_name = image_lr_filenames[index].split('/')[-1]
+        img_GT = cv2.imread(os.path.join('test/GTmod24', image_name))
         # 去除边界
         img_prediction = img_prediction[scale: -scale, scale: -scale]
         img_GT = img_GT[scale: -scale, scale: -scale]
@@ -143,7 +149,7 @@ def my_test():
         ssim = structural_similarity(img_prediction, img_GT, channel_axis=2)
         avg_psnr += psnr
         avg_ssim += ssim
-        print(psnr, ssim)
+        print(image_name, psnr, ssim)
     print("===> Avg. PSNR: {:.4f} dB".format(avg_psnr / len(image_lr_filenames)))
     print("===> Avg. SSIM: {:.4f} dB".format(avg_ssim / len(image_lr_filenames)))
 
