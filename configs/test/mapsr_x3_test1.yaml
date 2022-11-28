@@ -1,0 +1,4 @@
+scale: 3
+model:
+#  sd: "../save/_mapsr_x3_train1_from_pretrain/epoch-best.pth"
+  sd: "../save/_mapsr_x3_train1_from_pretrain/epoch-last.pth"

@@ -32,11 +32,14 @@ args = parser.parse_args()
 torch.backends.cudnn.benchmark = True
 
 # 加载配置文件
-# args.config = "../configs/test/swinir_x2_test1.yaml"
-args.config = "../configs/test/dbpn_x2_test1.yaml"
+args.config = "../configs/test/swinir_x2_test1.yaml"
+# args.config = "../configs/test/dbpn_x2_test1.yaml"
 # args.config = "../configs/test/esrt_x2_test1.yaml"
 # args.config = "../configs/test/rcan_x2_test1.yaml"
 # args.config = "../configs/test/edsr_x2_test1.yaml"
+# args.config = "../configs/test/mapsr_x2_test1.yaml"
+
+
 # args.config = "../configs/test/swinsr_x2_test1.yaml"
 # args.config = "../configs/test/swinsrv2_x2_test1.yaml"
 # args.config = "../configs/test/swinsrv2_x2_test2.yaml"
@@ -52,8 +55,12 @@ args.config = "../configs/test/dbpn_x2_test1.yaml"
 # args.config = "../configs/test/esrt_x3_test1.yaml"
 # args.config = "../configs/test/rcan_x3_test1.yaml"
 # args.config = "../configs/test/edsr_x3_test1.yaml"
+# args.config = "../configs/test/mapsr_x3_test1.yaml"
 
 # args.config = "../configs/test/swinir_L_x2_test1.yaml"
+args.config = "../configs/test/swinir_L_x3_test1.yaml"
+
+args.input_dir = "test_original"
 
 with open(args.config, 'r') as f:
     config = yaml.load(f, Loader=yaml.FullLoader)
@@ -122,7 +129,8 @@ def is_image_file(filename):
 
 
 image_lr_dir = "Results/LRbic" + "x{}".format(args.upscale_factor)
-image_gt_dir = "test/GTmod24"
+# image_gt_dir = "test/GTmod24"
+image_gt_dir = args.input_dir + "/GTmod24"
 image_lr_filenames = [join(image_lr_dir, x) for x in os.listdir(image_lr_dir) if is_image_file(x)]
 image_gt_filenames = [join(image_gt_dir, x) for x in os.listdir(image_gt_dir) if is_image_file(x)]
 
@@ -134,8 +142,9 @@ def my_test():
     for index in range(len(image_lr_filenames)):
         img_prediction = cv2.imread(image_lr_filenames[index])
         # img_GT = cv2.imread(image_gt_filenames[index])
-        image_name = image_lr_filenames[index].split('/')[-1]
-        img_GT = cv2.imread(os.path.join('test/GTmod24', image_name))
+        image_name = image_lr_filenames[index].split('\\')[-1]
+        # img_GT = cv2.imread(os.path.join('test/GTmod24', image_name))
+        img_GT = cv2.imread(os.path.join(image_gt_dir, image_name))
         # 去除边界
         img_prediction = img_prediction[scale: -scale, scale: -scale]
         img_GT = img_GT[scale: -scale, scale: -scale]
@@ -149,4 +158,4 @@ def my_test():
     print("===> Avg. SSIM: {:.4f} dB".format(avg_ssim / len(image_lr_filenames)))
 
 
-# my_test()
+my_test()

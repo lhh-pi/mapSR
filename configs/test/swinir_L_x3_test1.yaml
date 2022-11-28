@@ -1,0 +1,4 @@
+scale: 3
+model:
+  sd: "../save/_swinir_L_x3_train2/epoch-best.pth"
+#  sd: "../save/_swinir_L_x3_train2/epoch-last.pth"
