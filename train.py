@@ -54,10 +54,10 @@ def make_data_loader(spec, tag=''):
     for k, v in dataset[0].items():
         log('  {}: shape={}'.format(k, tuple(v.shape)))
 
-    # loader = DataLoader(dataset, batch_size=spec['batch_size'],
-    #                     shuffle=(tag == 'train'), num_workers=8, pin_memory=True)
     loader = DataLoader(dataset, batch_size=spec['batch_size'],
-                        shuffle=(tag == 'train'), num_workers=8, pin_memory=False)
+                        shuffle=(tag == 'train'), num_workers=8, pin_memory=True)
+    # loader = DataLoader(dataset, batch_size=spec['batch_size'],
+    #                     shuffle=(tag == 'train'), num_workers=8, pin_memory=False)
     return loader
 
 
@@ -282,7 +282,9 @@ if __name__ == '__main__':
     # args.config = 'configs/train/swinir_L_x3_train2.yaml'
 
     # args.config = 'configs/train/mapsr_x2_train1.yaml'
-    args.config = 'configs/train/mapsr_x2_train1_from_pretrain.yaml'
+    # args.config = 'configs/train/mapsr_x2_train1_from_pretrain.yaml'
+    # args.config = 'configs/train/mapsr_x2_train2_from_pretrain.yaml'
+    args.config = 'configs/train/mapsr_x2_train3_from_pretrain.yaml'
 
     with open(args.config, 'r') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
