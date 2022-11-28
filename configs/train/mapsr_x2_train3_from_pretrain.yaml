@@ -37,16 +37,16 @@ model:
   name: mapsr
   args:
     scale: 2
-  sd: 'Transfer/mapsr/mapsr_x2_pretrain.pth'
+  sd: 'save/_mapsr_x2_train2_from_pretrain/epoch-last.pth'
 
 optimizer:
   name: adam
   args:
-    lr: 1.e-6
+    lr: 5.e-5
 epoch_max: 1000
 multi_step_lr:
-  milestones: [200, 400, 600, 800]
-  gamma: 0.5
+#  milestones: [200, 400, 600, 800]
+#  gamma: 0.5
 
 epoch_val: 1
 epoch_save: 200
